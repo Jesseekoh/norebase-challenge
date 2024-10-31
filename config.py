@@ -2,5 +2,8 @@ import os
 
 
 class Config:
-  SQLALCHEMY_DATABASE_URI = 'sqlite:///articles.db'
+  SQLALCHEMY_DATABASE_URI = os.environ.get('SQLALCHEMY_DATABASE_URI')
   SESSION_TYPE = os.environ.get('SESSION_TYPE')
+  SESSION_COOKIE_HTTPONLY= os.environ.get('SESSION_COOKIE_HTTPONLY')
+  SESSION_COOKIE_SECURE= os.environ.get('SESSION_COOKIE_SECURE')
+  SESSION_PERMANENT = os.environ.get('SESSION_PERMANENT')
