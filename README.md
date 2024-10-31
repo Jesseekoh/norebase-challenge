@@ -45,7 +45,7 @@ This is a simple implementation of a Like Button feature
 ## Configuration
 Key configurations include:
 - `SECRET_KEY`: this should be provided in the .env file
-- `SQLALCHEMY_DATABASE_URI`: Database connection URI (default: `sqlite:///default.db`)
+- `SQLALCHEMY_DATABASE_URI`: Database connection URI (Postgres)
 - `SESSION_TYPE`: Session type (default: `filesystem`)
 - `SESSION_COOKIE_HTTPONLY`: HTTPOnly flag for session cookies (default: `True`)
 - `SESSION_COOKIE_SECURE`: Secure flag for session cookies (default: `False`)
