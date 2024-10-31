@@ -56,7 +56,7 @@ Key configurations include:
 The application provides the following endpoints:
 
 ### User Registration
-- **URL:** `/register`
+- **URL:** `/auth/register`
 - **Method:** `POST`
 - **Payload:**
     ```json
@@ -74,7 +74,7 @@ The application provides the following endpoints:
     ```
 
 ### User Login
-- **URL:** `/login`
+- **URL:** `/auth/login`
 - **Method:** `POST`
 - **Payload:**
     ```json
