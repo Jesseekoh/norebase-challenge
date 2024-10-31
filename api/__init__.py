@@ -7,6 +7,7 @@ from config import Config
 from api.extensions import db
 from dotenv import load_dotenv
 from api.models.article import Article
+from api.models.user import User
 from redis import Redis
 
 load_dotenv()
@@ -15,21 +16,15 @@ def create_app(config_object=Config):
   app.config.from_object(config_object)
   # enable CORS
   CORS(app)
-
   # Enable server-side sessions
   Session(app)
-
   # Initailize database
   db.init_app(app)
   app.config['SESSION_REDIS'] = Redis(host='localhost', port=6379)
+
   with app.app_context():
     # db.drop_all()
     db.create_all()
-
-
-  # @app.route('/')
-  # def index():
-  #   return 'hello world'
 
   
   from api.routes.main import bp as main_bp
