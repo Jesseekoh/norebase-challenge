@@ -37,6 +37,7 @@ def login():
       # check if password is correct
       if check_password_hash(user.password_hash, data['password']):
         session['user_id'] = user.id
+        
         return jsonify({'message': "You've loged in successfully"}), 200
       else:
         return jsonify({'message': 'Wrong password'}), 401
