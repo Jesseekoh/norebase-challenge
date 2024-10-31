@@ -31,16 +31,20 @@ def register():
 def login():
   data = request.get_json()
   # check if email and password are empty
-  if data['email'] and data['password']:
-    user = User.query.filter(User.email == data['email']).first()
-    if user:
-      # check if password is correct
-      if check_password_hash(user.password_hash, data['password']):
-        session['user_id'] = user.id
-        
-        return jsonify({'message': "You've loged in successfully"}), 200
-      else:
-        return jsonify({'message': 'Wrong password'}), 401
-    
-    return jsonify({'message': 'User does not exist'}), 404
-  return jsonify({'message': 'Email and password are required'}), 400
+  try:
+    if data['email'] and data['password']:
+      user = User.query.filter(User.email == data['email']).first()
+      if user:
+        # check if password is correct
+        if check_password_hash(user.password_hash, data['password']):
+          session['user_id'] = user.id
+          
+          return jsonify({'message': "You've loged in successfully"}), 200
+        else:
+          return jsonify({'message': 'Wrong password'}), 401
+      
+      return jsonify({'message': 'User does not exist'}), 404
+    return jsonify({'message': 'Email and password are required'}), 400
+  except Exception as e:
+    return jsonify({'message': 'There was an error logging in', 'error': str(e)}), 500
+
