@@ -19,7 +19,9 @@ def create_post():
         new_article = Article(title=data['title'], content=data['content'])
         db.session.add(new_article)
         db.session.commit()
-        return jsonify({'message': 'Article created successfully'}), 201
+        return jsonify({'message': 'Article created successfully', 'data': {
+          'article_id': str(new_article.id)
+        }}), 201
       return jsonify({'message': 'Not authorized'}), 403
     except Exception as e:
       db.session.rollback()
