@@ -102,7 +102,10 @@ The application provides the following endpoints:
 - **Response:**
     ```json
     {
-      "message": "Article created successfully"
+      "message": "Article created successfully",
+      "data" {
+        "article_id": "articleID"
+      }
     }
     ```
 
