@@ -8,7 +8,7 @@ from api.extensions import db
 class Article(db.Model):
   __tablename__ = 'articles'
 
-  id = Column(UUID(as_uuid=True), primary_key=True, nullable=False, default=uuid4)
+  id = Column(String(36), primary_key=True, nullable=False, default=lambda:str(uuid4()))
   title = Column(String, nullable=False)
   content = Column(String, nullable=False)
   like_count = Column(Integer, default=0)

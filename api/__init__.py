@@ -8,7 +8,6 @@ from api.extensions import db
 from dotenv import load_dotenv
 from api.models.article import Article
 from api.models.user import User
-from redis import Redis
 
 load_dotenv()
 def create_app(config_object=Config):
@@ -20,10 +19,10 @@ def create_app(config_object=Config):
   Session(app)
   # Initailize database
   db.init_app(app)
-  app.config['SESSION_REDIS'] = Redis(host='localhost', port=6379)
+
 
   with app.app_context():
-    db.drop_all()
+    # db.drop_all()
     db.create_all()
 
   

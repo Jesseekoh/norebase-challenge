@@ -6,6 +6,7 @@ from api.extensions import db
 
 from api.routes.auth import bp
 from werkzeug.security import check_password_hash, generate_password_hash
+from sqlalchemy import exc
 
 @bp.route('/register', methods=['POST'])
 def register():
@@ -24,6 +25,7 @@ def register():
     return jsonify({'message': 'User registered successfully'}), 201
   except Exception as e:
     db.session.rollback()
+    # if e is exc.IntegrityError:
     return jsonify({'message': 'An error occured while creating user', 'error': str(e)}), 500
 
 

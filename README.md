@@ -123,6 +123,3 @@ The application provides the following endpoints:
     }
     ```
 
-
-## Note
-You need to had the redis-server service running
