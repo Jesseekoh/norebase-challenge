@@ -8,8 +8,7 @@ This is a simple implementation of a Like Button feature
 
 ### Prerequisites
 - Python 3.x
-- PostgreSQL
-- Redis
+- Sqlite
 
 ### Installation
 1. Clone the repository:
@@ -45,7 +44,7 @@ This is a simple implementation of a Like Button feature
 ## Configuration
 Key configurations include:
 - `SECRET_KEY`: this should be provided in the .env file
-- `SQLALCHEMY_DATABASE_URI`: Database connection URI (Postgres)
+- `SQLALCHEMY_DATABASE_URI`: Database connection URI (default: 'sqlite:///default.db')
 - `SESSION_TYPE`: Session type (default: `filesystem`)
 - `SESSION_COOKIE_HTTPONLY`: HTTPOnly flag for session cookies (default: `True`)
 - `SESSION_COOKIE_SECURE`: Secure flag for session cookies (default: `False`)
