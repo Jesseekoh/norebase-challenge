@@ -13,3 +13,7 @@ class Article(db.Model):
   content = Column(String, nullable=False)
   like_count = Column(Integer, default=0)
   liked_by_users = relationship('User', secondary='user_article_likes', back_populates='liked_articles')
+
+  def as_dict(self):
+    pass
+
