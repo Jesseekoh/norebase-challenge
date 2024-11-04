@@ -1,6 +1,7 @@
 import os
 from cachelib.file import FileSystemCache
 class Config:
+  SECRET_KEY = os.environ.get('SECRET_KEY', os.urandom(24))
   SQLALCHEMY_DATABASE_URI = os.environ.get('SQLALCHEMY_DATABASE_URI', 'sqlite:///default.db')
   SESSION_TYPE = os.environ.get('SESSION_TYPE', 'cachelib')
   SESSION_COOKIE_HTTPONLY= os.environ.get('SESSION_COOKIE_HTTPONLY', 'True')
