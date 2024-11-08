@@ -9,7 +9,7 @@ from api.routes.main import bp
 
 @bp.route('/post/new', methods=['POST'])
 def create_post():
-  if session['user_id']:
+  if 'user_id'in session:
     user_id = session['user_id']
     data = request.get_json()
 
@@ -34,8 +34,7 @@ def create_post():
 @bp.route('/like', methods=['POST'])
 @cross_origin(supports_credentials=True)
 def like_post():
-  if session['user_id']:
-    print(session['user_id'])
+  if 'user_id' in session:
     user_id = session['user_id']
     data = request.get_json()
     article = Article.query.filter(Article.id == data['articleID']).first()
